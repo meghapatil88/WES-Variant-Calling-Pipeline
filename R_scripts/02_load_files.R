@@ -14,7 +14,7 @@ indels <- read.delim(
   skip = 157,
   header = TRUE)
 
-# 3.
+# 3. check rows
 cat("SNPs loaded:", nrow(snps), "rows\n")
 cat("Indels loaded:", nrow(indels), "rows\n")
 
