@@ -1,0 +1,5 @@
+      1 
+     93 HIGH
+   2375 LOW
+   1683 MODERATE
+  25486 MODIFIER
