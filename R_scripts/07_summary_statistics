@@ -1,0 +1,12 @@
+cat("\n===== SUMMARY STATISTICS =====\n")
+cat("\nSNPs (27,694 total):\n")
+print(table(snps$IMPACT, useNA = "ifany"))
+
+cat("\nIndels (1,787 total):\n")
+print(table(indels$IMPACT, useNA = "ifany"))
+
+cat("\nTotal HIGH impact variants:", 
+    sum(snps$IMPACT == "HIGH", na.rm = TRUE) + sum(indels$IMPACT == "HIGH", na.rm = TRUE), "\n")
+cat("Total MODERATE impact variants:", 
+    sum(snps$IMPACT == "MODERATE", na.rm = TRUE) + sum(indels$IMPACT == "MODERATE", na.rm = TRUE), "\n")
+
