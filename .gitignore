@@ -1,0 +1,40 @@
+# Raw sequencing data (large files)
+*.fastq
+*.fastq.gz
+
+# Alignment files
+*.bam
+*.bam.bai
+*.sam
+
+# Variant files
+*.vcf
+*.vcf.gz
+*.tbi
+
+# Reference genome files
+*.fa
+*.fasta
+*.fai
+*.dict
+*.bwt
+*.pac
+*.ann
+*.amb
+*.sa
+
+# Temporary files
+*.tmp
+*.log
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user
+
+# System files
+.DS_Store
+
+# Conda environments
+env/
+.conda/
