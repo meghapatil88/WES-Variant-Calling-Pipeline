@@ -1,0 +1,27 @@
+# 1. Environment Setup (Create and Activate x86 Conda Environment
+CONDA_SUBDIR=osx-64 conda create -n vep_x86 -c bioconda ensembl-vep perl=5.26
+conda activate vep_x86
+
+# 2. Download and Install Human VEP Cache
+vep_install \
+-a cf \
+-s homo_sapiens \
+-y GRCh38
+
+# 3. Annotate Single Nucleotide Polymorphisms
+vep \
+-i SRR099968_snps_filtered.vcf.gz \
+-o ../annotation/SRR099968_snps_annotated.txt \
+--cache \
+--offline \
+--assembly GRCh38 \
+--everything
+
+# 4. Annotate Insertion and Deletions
+vep \
+-i SRR099968_indels_filtered.vcf.gz \
+-o ../annotation/SRR099968_indels_annotated.txt \
+--cache \
+--offline \
+--assembly GRCh38 \
+--everything

@@ -1,0 +1,27 @@
+# 1. create Sequence Dictionary
+gatk CreateSequenceDictionary \
+-R hg38.fa
+
+# 2. Call Genetic Variants
+gatk HaplotypeCaller \
+-R ../reference/hg38.fa \
+-I ../picard/SRR099968_markdup.bam \
+-O SRR099968_raw.vcf.gz
+
+# 3. Calculate Variant statistics
+bcftools stats SRR099968_raw.vcf.gz > variant_stats.txt
+
+#4. Extract Summary Numbers
+grep "^SN" variant_stats.txt
+
+# 5. Filter Single Nucleotide Polymorphisms
+gatk SelectVariants \
+-V ../variants/SRR099968_raw.vcf.gz \
+--select-type SNP \
+-O SRR099968_snps.vcf.gz
+
+# 6. Filter Insertions and Deletions
+gatk SelectVariants \
+-V ../variants/SRR099968_raw.vcf.gz \
+--select-type INDEL \
+-O SRR099968_indels.vcf.gz

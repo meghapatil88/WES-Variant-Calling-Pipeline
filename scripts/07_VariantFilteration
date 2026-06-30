@@ -1,0 +1,15 @@
+# 1. Filter Single Nucleotide polymorphisms Quality
+gatk VariantFiltration \
+-V filtered/SRR099968_snps.vcf.gz \
+-filter "QD < 2.0" --filter-name "LowQD" \
+-filter "FS > 60.0" --filter-name "HighFS" \
+-filter "MQ < 40.0" --filter-name "LowMQ" \
+-O filtered/SRR099968_snps_filtered.vcf.gz
+
+# 2. Filter Insertions and Deletions Quality
+gatk VariantFiltration \
+-V filtered/SRR099968_indels.vcf.gz \
+-filter "QD < 2.0" --filter-name "LowQD" \
+-filter "FS > 60.0" --filter-name "HighFS" \
+-filter "MQ < 40.0" --filter-name "LowMQ" \
+-O filtered/SRR099968_indels_filtered.vcf.gz

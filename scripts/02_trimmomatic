@@ -1,0 +1,8 @@
+# 1. Trim Low Quality Reads and Adaptors (Paired-End)
+trimmomatic PE \
+  rawdata/SRR099968_1.fastq.gz rawdata/SRR099968_2.fastq.gz \
+  trimmed/SRR099968_1_paired.fastq.gz trimmed/SRR099968_1_unpaired.fastq.gz \
+  trimmed/SRR099968_2_paired.fastq.gz trimmed/SRR099968_2_unpaired.fastq.gz \
+  ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 \
+  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50 \
+  2>&1 | tee trimmomatic.log

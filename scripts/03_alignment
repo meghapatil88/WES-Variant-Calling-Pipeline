@@ -1,0 +1,5 @@
+# 1. Index the reference genome
+bwa index hg38.fa
+
+# 2. alignment
+bwa mem -t 4 hg38.fa ../trimmed/SRR099968_1_paired.fastq.gz ../trimmed/SRR099968_2_paired.fastq.gz > SRR099968_aligned.sam

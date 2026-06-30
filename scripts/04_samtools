@@ -1,0 +1,2 @@
+# 1. convert sam file to bam file Using samtools
+samtools view -bS SRR099968_aligned.sam > SRR099968_aligned.bam

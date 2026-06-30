@@ -1,0 +1,19 @@
+# 1. picard will AddOrReplaceReadgroups in the alignment
+picard AddOrReplaceReadGroups \
+-I SRR099968_aligned.sorted.bam \
+-O SRR099968_RG.bam \
+-RGID SRR099968 \
+-RGLB WES_library \
+-RGPL ILLUMINA \
+-RGPU lane1 \
+-RGSM SRR099968
+
+# 2. Index the Generated ReadGroup bam file using samtools
+samtools index SRR099968_RG.bam
+
+# 3. picard mark the Duplicates in Alignment
+picard MarkDuplicates \
+-I SRR099968_RG.bam \
+-O ../picard/SRR099968_markdup.bam \
+-M ../picard/SRR099968_metrics.txt \
+-CREATE_INDEX true
